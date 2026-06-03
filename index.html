@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>業績 | Azabu Fukuyama Lab</title>
+  <style>
+    :root {
+      --ink: #15202b;
+      --muted: #657381;
+      --line: #dfe7ee;
+      --paper: #ffffff;
+      --soft: #f5f8fb;
+      --accent: #0b5c6b;
+      --accent-2: #23a6a8;
+      --gold: #b68a2b;
+      --shadow: 0 16px 40px rgba(21, 32, 43, .09);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #eef5f7 0%, #ffffff 340px);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 32px;
+      align-items: end;
+      padding: 46px 0 34px;
+      border-bottom: 1px solid rgba(11, 92, 107, .18);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: #3e4c59;
+      font-size: 17px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 18px 16px;
+      background: rgba(255, 255, 255, .78);
+      border: 1px solid rgba(11, 92, 107, .14);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(21, 32, 43, .06);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: 44px 0 0;
+    }
+
+    .section-head {
+      display: flex;
+      gap: 18px;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card,
+    .press-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 22px;
+      border-top: 4px solid var(--accent-2);
+    }
+
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 14px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #e6f6f5;
+      color: #087074;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .feature-card h3,
+    .press-card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    .jp-title {
+      margin: 10px 0 0;
+      color: #516171;
+      font-size: 14px;
+    }
+
+    .meta {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .link-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid #c8d8df;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .press-card {
+      padding: 20px;
+    }
+
+    .press-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .date-pill {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f7efe0;
+      color: #7a5510;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .source-pill {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #edf3f6;
+      color: #4e6372;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .press-card p {
+      margin: 10px 0 0;
+      color: #53606d;
+      font-size: 14px;
+    }
+
+    .year-block {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 22px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .year {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      color: var(--accent);
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pub-item {
+      padding: 18px 20px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .pub-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.5;
+    }
+
+    .authors {
+      margin: 8px 0 0;
+      color: #4f5d68;
+      font-size: 13px;
+    }
+
+    .journal {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .year-block {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats,
+      .featured-grid,
+      .press-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 8px;
+        text-align: left;
+      }
+
+      .year {
+        position: static;
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Azabu Fukuyama Lab</p>
+        <h1>業績 / Publications</h1>
+        <p class="lead">福山研究室では、獣医療、免疫・アレルギー、皮膚疾患、口腔衛生、環境因子と健康に関する研究成果を国内外の学術誌・プレスリリース等で発信しています。</p>
+      </div>
+      <div class="hero-stats" aria-label="掲載概要">
+        <div class="stat"><strong>2026</strong><span>最新論文まで掲載</span></div>
+        <div class="stat"><strong>3</strong><span>Featured Publications</span></div>
+        <div class="stat"><strong>Link</strong><span>DOI / PubMed / 外部発表</span></div>
+      </div>
+    </header>
+
+    <section class="section" id="featured">
+      <div class="section-head">
+        <h2>Featured Publications</h2>
+        <p class="section-note">最新3件を固定表示</p>
+      </div>
+      <div class="featured-grid">
+        <article class="feature-card">
+          <span class="tag">2026</span>
+          <h3><a href="https://doi.org/10.1016/j.intimp.2026.116812" target="_blank" rel="noopener">Synergistic Effects of Glucocorticoid and N₂-Gas Cold Atmospheric-Pressure Plasma in a Mouse Model of Atopic Dermatitis</a></h3>
+          <p class="jp-title">アトピー性皮膚炎モデルマウスにおける、グルココルチコイドと窒素ガス低温大気圧プラズマの相乗効果検討</p>
+          <p class="meta">Int Immunopharmacol. 2026;182:116812.</p>
+          <div class="link-row">
+            <a class="link-chip" href="https://doi.org/10.1016/j.intimp.2026.116812" target="_blank" rel="noopener">DOI</a>
+            <a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/42134290/" target="_blank" rel="noopener">PubMed</a>
+          </div>
+        </article>
+        <article class="feature-card">
+          <span class="tag">2026</span>
+          <h3><a href="https://pubmed.ncbi.nlm.nih.gov/42144066/" target="_blank" rel="noopener">Canine-Derived Lactobacillus acidophilus Modulates Th2-Driven Allergic Inflammation via IL-10-Mediated Immune Regulation in Murine Models</a></h3>
+          <p class="jp-title">イヌ由来ラクトバチルス・アシドフィルスは、マウスモデルにおいてIL-10を介した免疫調節を通じてTh2主導のアレルギー性炎症を抑制する</p>
+          <p class="meta">Arch Biochem Biophys. 2026;110863.</p>
+          <div class="link-row">
+            <a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/42144066/" target="_blank" rel="noopener">PubMed</a>
+          </div>
+        </article>
+        <article class="feature-card">
+          <span class="tag">2026</span>
+          <h3><a href="https://doi.org/10.1093/toxsci/kfag009" target="_blank" rel="noopener">Removal of VOCs by chemical filters significantly inhibited the development of atopic dermatitis symptoms in mice</a></h3>
+          <p class="jp-title">ケミカルフィルタによる揮発性有機化合物の除去は、マウスモデルにおけるアトピー性皮膚炎症状発現を有意に阻害する</p>
+          <p class="meta">Toxicol Sci. 2026;209(3):kfag009.</p>
+          <div class="link-row">
+            <a class="link-chip" href="https://doi.org/10.1093/toxsci/kfag009" target="_blank" rel="noopener">DOI</a>
+            <a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41678259/" target="_blank" rel="noopener">PubMed</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="press">
+      <div class="section-head">
+        <h2>プレスリリース等</h2>
+        <p class="section-note">研究成果・共同研究・製品化関連の外部発表</p>
+      </div>
+      <div class="press-grid">
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2026.04.16</span><span class="source-pill">麻布大学</span></div>
+          <h3><a href="https://www.azabu-u.ac.jp/topics/2026/0416_48507.html" target="_blank" rel="noopener">室内化学物質を低減する空気清浄機開発の研究が国際的評価を獲得</a></h3>
+          <p>麻布大学、FUJIOH、清水建設の共同執筆論文が、Toxicological Sciencesに掲載されたことを発表。</p>
+        </article>
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2026.03.06</span><span class="source-pill">PR TIMES</span></div>
+          <h3><a href="https://prtimes.jp/main/html/rd/p/000000021.000065349.html" target="_blank" rel="noopener">「犬には犬の乳酸菌」を。犬由来乳酸菌採用の新商品 HÜGBIO® 乳酸菌入りデンタルケアガムを発売</a></h3>
+          <p>麻布大学獣医学部での発見をきっかけに誕生した犬由来乳酸菌を採用した製品発表。</p>
+        </article>
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2025.12.17</span><span class="source-pill">麻布大学</span></div>
+          <h3><a href="https://www.azabu-u.ac.jp/topics/2025/1217_47602.html" target="_blank" rel="noopener">犬皮膚細胞における独自セラミドの作用を解明</a></h3>
+          <p>ロート製薬との共同研究により、犬の皮膚に対するセラミド関連の知見を発表。</p>
+        </article>
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2025.07.09</span><span class="source-pill">麻布大学</span></div>
+          <h3><a href="https://www.azabu-u.ac.jp/topics/2025/0709_46377.html" target="_blank" rel="noopener">動物病院向け VOC 低減型空気清浄機を共同開発</a></h3>
+          <p>麻布大学、清水建設、FUJIOHが産学連携で、動物病院向けのVOC低減型空気清浄機を共同開発。</p>
+        </article>
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2025.06.24</span><span class="source-pill">Panasonic</span></div>
+          <h3><a href="https://news.panasonic.com/global/press/en250624-2" target="_blank" rel="noopener">nanoe™ inhibits dust mite allergens hidden within bedding fibers</a></h3>
+          <p>パナソニックの検証で、福山朋季准教授との共同研究によるダニアレルゲン関連の免疫反応抑制を紹介。</p>
+        </article>
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2024.11.01</span><span class="source-pill">麻布大学</span></div>
+          <h3><a href="https://www.azabu-u.ac.jp/topics/2024/1101_44807.html" target="_blank" rel="noopener">ヤエヤマクロレラの摂取が皮膚アレルギー症状を軽減する可能性を確認</a></h3>
+          <p>ユーグレナとの共同研究により、デオキシニバレノールにより増悪する皮膚アレルギー症状への影響を発表。</p>
+        </article>
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2024.02.14</span><span class="source-pill">Panasonic</span></div>
+          <h3><a href="https://news.panasonic.com/jp/press/jn240214-2" target="_blank" rel="noopener">ナノイー技術による花粉アレルギー反応の抑制効果を細胞で実証</a></h3>
+          <p>麻布大学獣医学部獣医学科 福山朋季准教授との共同研究として、花粉アレルギー反応抑制を細胞レベルで確認。</p>
+        </article>
+        <article class="press-card">
+          <div class="press-top"><span class="date-pill">2023.08.24</span><span class="source-pill">麻布大学</span></div>
+          <h3><a href="https://www.azabu-u.ac.jp/topics/2023/0824_42357.html" target="_blank" rel="noopener">ヤエヤマクロレラの摂取がマイコトキシンの排出を促進することを確認</a></h3>
+          <p>ユーグレナとの共同研究により、食品中マイコトキシンへの対応素材としての可能性を発表。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-head">
+        <h2>公開論文</h2>
+        <p class="section-note">最新のものから年別に掲載</p>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2026</div>
+        <ol class="pub-list">
+          <li class="pub-item">
+            <p class="pub-title"><a href="https://doi.org/10.1016/j.intimp.2026.116812" target="_blank" rel="noopener">Synergistic effects of glucocorticoid and N₂-gas cold atmospheric plasma in a mouse model of atopic dermatitis</a></p>
+            <p class="authors">Ohira C, Komai N, Inaba Y, Hamauzu A, Kaneki M, Nakamura M, Miyasato K, Nagahara Y, Kai H, Miyamoto E, Morooka A, Fukuyama T (corresponding author).</p>
+            <p class="journal">Int Immunopharmacol. 2026;182:116812.</p>
+            <div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.intimp.2026.116812" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/42134290/" target="_blank" rel="noopener">PubMed</a></div>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/42144066/" target="_blank" rel="noopener">Canine-Derived Lactobacillus acidophilus Modulates Th2-Driven Allergic Inflammation via IL-10-Mediated Immune Regulation in Murine Models</a></p>
+            <p class="authors">Sato A, Kaneki M, Ohira C, Hishikawa Y, Chiba M, Keimatsu K, Hiwatashi T, Inaba Y, Hamauzu A, Iwashita N, Wanganuttara T, Uchiyama J, Sakaguchi M, Fukuyama T (corresponding author).</p>
+            <p class="journal">Arch Biochem Biophys. 2026;110863.</p>
+            <div class="link-row"><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/42144066/" target="_blank" rel="noopener">PubMed</a></div>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title"><a href="https://doi.org/10.1093/toxsci/kfag009" target="_blank" rel="noopener">Removal of volatile organic compounds by chemical filters significantly inhibited the development of atopic dermatitis symptoms in mice: Potential implications for air-conditioning systems in healthcare environments</a></p>
+            <p class="authors">Ohira C, Tomita K, Ota Y, Yano K, Amano M, Kaneki M, Yamada A, Usui R, Nagai Y, Nagane M, Takagi S, Fukuyama T (corresponding author).</p>
+            <p class="journal">Toxicol Sci. 2026 Mar 2;209(3):kfag009.</p>
+            <div class="link-row"><a class="link-chip" href="https://doi.org/10.1093/toxsci/kfag009" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41678259/" target="_blank" rel="noopener">PubMed</a></div>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title">Topical Mongolian Lycium ruthenicum Extract Attenuates Oxidative Stress, Inflammation, and Itch Signaling in Atopic Dermatitis Models</p>
+            <p class="authors">Saito H, Usui C, Matsuzaka R, Ohira C, Kaneki M, Takagi Y, Hoshino Y, Fukuyama T (corresponding author).</p>
+            <p class="journal">J Clin Biochem Nutr. 2026. In press.</p>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title">Reduction of Cry j 1 Allergenicity by Nano-Sized Electrostatic Atomized Water Particles (NEAWPs) in Human Bronchial Epithelium and Dendritic Cells</p>
+            <p class="authors">Iwamatsu S, Kaga Y, Komura Y, Ishigami Y, Fukuyama T (corresponding author).</p>
+            <p class="journal">International Journal of Air-Conditioning and Refrigeration. 2026. In press.</p>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title"><a href="https://doi.org/10.1016/j.jphs.2026.02.004" target="_blank" rel="noopener">Modulation of age-associated immune dysfunction and allergic responses by Mongolian Lycium ruthenicum extract in murine models</a></p>
+            <p class="authors">Kaneki M, Ohira C, Usui C, Yasuda I, Ichikawa M, Iwashita N, Takagi Y, Fukuyama T (corresponding author).</p>
+            <p class="journal">Journal of Pharmacological Sciences. 2026 Apr;160(4):232-243.</p>
+            <div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.jphs.2026.02.004" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41795961/" target="_blank" rel="noopener">PubMed</a></div>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title"><a href="https://doi.org/10.1016/j.tvjl.2026.106613" target="_blank" rel="noopener">Oral interferon alpha treatment significantly reduces halitosis and Porphyromonas gulae growth in dogs with periodontal disease</a></p>
+            <p class="authors">Ishida K, Kaneki M, Ohira C, Fukuyama T (corresponding author).</p>
+            <p class="journal">Vet J. 2026 Feb 24;317:106613.</p>
+            <div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.tvjl.2026.106613" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41748062/" target="_blank" rel="noopener">PubMed</a></div>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title"><a href="https://doi.org/10.1016/j.micpath.2025.108216" target="_blank" rel="noopener">Bactericidal Activity of Mastic Resin Against Staphylococcus pseudintermedius and Staphylococcus aureus and its Therapeutic Efficacy in Experimental pyoderma/impetigo</a></p>
+            <p class="authors">Komai N, Kaga Y, Kaneki M, Ohira C, Iwashita N, Uchiyama J, Fukuyama T (corresponding author).</p>
+            <p class="journal">Microb Pathog. 2026 Jan;210:108216.</p>
+            <div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.micpath.2025.108216" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41338304/" target="_blank" rel="noopener">PubMed</a></div>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title"><a href="https://doi.org/10.1371/journal.pone.0341148" target="_blank" rel="noopener">Preventive Effect of Bentonite Against Pyoderma via Direct Binding Capability of Staphylococci</a></p>
+            <p class="authors">Kaneki M, Ohira C, Takahashi M, Fukuyama T (corresponding author).</p>
+            <p class="journal">PLoS One. 2026 Jan 23;21(1):e0341148.</p>
+            <div class="link-row"><a class="link-chip" href="https://doi.org/10.1371/journal.pone.0341148" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41576001/" target="_blank" rel="noopener">PubMed</a></div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2025</div>
+        <ol class="pub-list">
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.3389/froh.2025.1713668" target="_blank" rel="noopener">Cyclodextran prevents Porphyromonas gulae and Porphyromonas gingivalis induced halitosis and cytokine secretion via direct inhibition of biofilm formation</a></p><p class="authors">Toyooka M, Kaneki M, Ohira C, Nakamura Y, Yamamoto M, Fukuyama T (corresponding author).</p><p class="journal">Front Oral Health. 2025 Dec 18;6:1713668.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.3389/froh.2025.1713668" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41487702/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1038/s41598-025-27244-x" target="_blank" rel="noopener">Whole mastic resin ameliorates halitosis and gingivitis in dogs and cats infected with Porphyromonas gulae</a></p><p class="authors">Kaneki M, Komai N, Ohira C, Fukuyama T (corresponding author).</p><p class="journal">Sci Rep. 2025 Dec 8;15(1):43332.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1038/s41598-025-27244-x" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41360842/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1007/s11259-025-10945-z" target="_blank" rel="noopener">Cetylpyridinium chloride and platinum nanoparticles effects in dogs with Porphyromonas gulae-infected periodontal disease</a></p><p class="authors">Fukuyama T (corresponding author), Shirahata S, Miura T, Odajima K, Kobayashi T, Kawata R, Murakami M.</p><p class="journal">Vet Res Commun. 2025 Nov 11;50(1):26.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1007/s11259-025-10945-z" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41217619/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.3390/biomedicines13102536" target="_blank" rel="noopener">Topical Administration of a Mixed Microbial Culture of Lactobacillus paracasei, Pichia membranifaciens and Saccharomyces cerevisiae Significantly Inhibits the Development of Atopic Dermatitis in a Mouse Model Through IL-10 Overexpression by Dendritic Cells</a></p><p class="authors">Kaneki M, Ohira C, Magami T, Hamauzu A, Inaba Y, Togase H, Fukuyama T (corresponding author).</p><p class="journal">Biomedicines. 2025 Oct 17;13(10):2536.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.3390/biomedicines13102536" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41153816/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.3390/vetsci12100981" target="_blank" rel="noopener">Bactericidal and Anti-Inflammatory Effects of Ashitaba-Extract Ameliorate the Gingivitis and Halitosis in Dogs with Porphyromonas gulae-Infected Periodontal Disease</a></p><p class="authors">Miyamoto T, Shirahata S, Komuro M, Kaneki M, Ohira C, Fukuyama T (corresponding author).</p><p class="journal">Vet Sci. 2025 Oct 13;12(10):981.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.3390/vetsci12100981" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/41150121/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1093/toxres/tfaf110" target="_blank" rel="noopener">Influence of senescence on the sensitization potential of chemicals detected by local lymph node assays in aged mice</a></p><p class="authors">Ishida K, Kaneki M, Ohira C, Ichikawa M, Yasuda I, Usui C, Takagi Y, Fukuyama T (corresponding author).</p><p class="journal">Toxicol Res (Camb). 2025 Aug 1;14(4):tfaf110.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1093/toxres/tfaf110" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/40755528/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.3390/toxins17070318" target="_blank" rel="noopener">Oral Exposure to Chlorella sorokiniana Detoxifies Deoxynivalenol, Ochratoxin A, and Fumonisin B1 In Vitro and In Vivo</a></p><p class="authors">Yamaguchi H, Ando M, Ohira C, Magami T, Kaneki M, Sugita K, Ogawa T, Nakashima A, Fukuyama T (corresponding author).</p><p class="journal">Toxins (Basel). 2025 Jun 23;17(7):318.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.3390/toxins17070318" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/40711130/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.jphs.2025.06.001" target="_blank" rel="noopener">Oral administration of undenatured type II collagen significantly inhibits arthritis-associated pain signal in a mouse model of collagen antibody-induced arthritis and meniscus removal</a></p><p class="authors">Yasuda I, Kaneki M, Ohira C, Ichikawa M, Iwazaki E, Tsuruwaka H, Fukuyama T (corresponding author).</p><p class="journal">J Pharmacol Sci. 2025 Aug;158(4):368-372.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.jphs.2025.06.001" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/40544000/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1002/jat.4786" target="_blank" rel="noopener">Acute and Subacute Oral Exposure to Inorganic Arsenic Significantly Impacted the Pathology of a Mouse Model With Th2- and Th17-, But Not Th1-Dependent Allergy Development</a></p><p class="authors">Matsuzaka R, Ogata Y, Kato N, Ohira C, Kaneki M, Iwashita N, Takagi Y, Fukuyama T (corresponding author).</p><p class="journal">J Appl Toxicol. 2025 Aug;45(8):1509-1520.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1002/jat.4786" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/40223156/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.jphs.2025.02.001" target="_blank" rel="noopener">Intraoral treatment of persimmon tannin significantly ameliorates gingivitis, plaque and halitosis via directly influence the periodontal bacteria Porphyromonas gulae</a></p><p class="authors">Toyooka M, Kaneki M, Ohira C, Hachiya A, Fukuyama T (corresponding author).</p><p class="journal">J Pharmacol Sci. 2025 Apr;157(4):203-211.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.jphs.2025.02.001" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/40058939/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.3390/toxins17020047" target="_blank" rel="noopener">Short-Term Oral Administration of 1.5 μg/kg bw/day of Deoxynivalenol Significantly Exacerbates Inflammatory and Itching Symptoms in a Mouse Model of Imiquimod-Induced Psoriasis</a></p><p class="authors">Miyamoto T, Komuro M, Aihara R, Ohira C, Kaneki M, Iwashita N, Takagi Y, Miyasaka A, Kushiro M, Miyake S, Fukuyama T (corresponding author).</p><p class="journal">Toxins (Basel). 2025 Jan 21;17(2):47.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.3390/toxins17020047" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/39998065/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1111/febs.17379" target="_blank" rel="noopener">Hypoxia-induced increase in sphingomyelin synthase 2 aggravates ischemic skeletal muscle inflammation</a></p><p class="authors">Mizugaki H, Nagane M, Sato-Akaba H, Kmiec M, Kuppusamy P, Yasui H, Inanami O, Murakami H, Aihara N, Kamiie J, Mizunoya W, Yasuda I, Fukuyama T, Naya Y, Yamashita T.</p><p class="journal">FEBS J. 2025 Mar;292(5):1086-1105.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1111/febs.17379" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/39739672/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.intimp.2024.113805" target="_blank" rel="noopener">Oral treatment with catechin isolated from Japanese green tea significantly inhibits the growth of periodontal pathogen Porphyromonas gulae and ameliorates the gingivitis and halitosis caused by periodontal disease in cats and dogs</a></p><p class="authors">Ohira C, Kaneki M, Shirao D, Kurauchi N, Fukuyama T (corresponding author).</p><p class="journal">Int Immunopharmacol. 2025 Jan 27;146:113805.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.intimp.2024.113805" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/39693953/" target="_blank" rel="noopener">PubMed</a></div></li>
+        </ol>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2024</div>
+        <ol class="pub-list">
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.3390/ijms25147852" target="_blank" rel="noopener">Oral Exposure to Low Concentration of Fumonisin B2, but Not Fumonisin B1, Significantly Exacerbates the Pathophysiology of Imiquimod-Induced Psoriasis in Mice</a></p><p class="authors">Ando M, Yamaguchi H, Iwashita N, Takagi Y, Yoshinari T, Fukuyama T (corresponding author).</p><p class="journal">Int J Mol Sci. 2024 Jul 18;25(14):7852.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.3390/ijms25147852" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/39063102/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1177/08987564231189650" target="_blank" rel="noopener">The Effect of Subacute Oral Folic Acid Treatment on Growth of Porphyromonas gulae in Dogs</a></p><p class="authors">Shirahata S, Katayama Y, Kaneki M, Uchiyama J, Fukuyama T (corresponding author).</p><p class="journal">J Vet Dent. 2024 Jul;41(4):281-287.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1177/08987564231189650" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/37499183/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1007/s00204-024-03740-3" target="_blank" rel="noopener">Sub-acute oral exposure to lowest observed adverse effect level of nivalenol exacerbates atopic dermatitis in mice via direct activation of mitogen-activated protein kinase signal in antigen-presenting cells</a></p><p class="authors">Matsuzaka R, Yamaguchi H, Ohira C, Kurita T, Iwashita N, Takagi Y, Nishino T, Noda K, Sugita K, Kushiro M, Miyake S, Fukuyama T (corresponding author).</p><p class="journal">Arch Toxicol. 2024 Jul;98(7):2173-2183.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1007/s00204-024-03740-3" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/38616237/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1038/s41598-024-55842-8" target="_blank" rel="noopener">Investigation of periodontal disease development and Porphyromonas gulae FimA genotype distribution in small dogs</a></p><p class="authors">Yasuda J, Yasuda H, Nomura R, Matayoshi S, Inaba H, Gongora E, Iwashita N, Shirahata S, Kaji N, Akitomo T, Mitsuhata C, Uchiyama J, Fukuyama T, Matsumoto-Nakano M, Nakano K, Murakami M.</p><p class="journal">Sci Rep. 2024 Mar 4;14(1):5360.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1038/s41598-024-55842-8" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/38438471/" target="_blank" rel="noopener">PubMed</a></div></li>
+        </ol>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2023</div>
+        <ol class="pub-list">
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1007/s00204-023-03593-2" target="_blank" rel="noopener">Effects of low concentrations of ozone gas exposure on percutaneous oxygen saturation and inflammatory responses in a mouse model of Dermatophagoides farinae-induced asthma</a></p><p class="authors">Ohira C, Tomita K, Kaneki M, Iwashita N, Takagi Y, Kurihara T, Nagane M, Kamiie J, Fukuyama T (corresponding author).</p><p class="journal">Arch Toxicol. 2023 Dec;97(12):3151-3162.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1007/s00204-023-03593-2" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/37733069/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.intimp.2023.110920" target="_blank" rel="noopener">Therapeutic potential of ozone water treatment in alleviating atopic dermatitis symptoms in mouse models</a></p><p class="authors">Kaneki M, Ohira C, Takahashi M, Iwashita N, Takagi Y, Nagane M, Uchiyama J, Fukuyama T (corresponding author).</p><p class="journal">Int Immunopharmacol. 2023 Nov;124(Pt A):110920.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.intimp.2023.110920" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/37716162/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1007/s00204-023-03579-0" target="_blank" rel="noopener">Chronic oral exposure to low-concentration fumonisin B2 significantly exacerbates the inflammatory responses of allergies in mice</a></p><p class="authors">Ando M, Yamaguchi H, Morimoto A, Iwashita N, Takagi Y, Nagane M, Yoshinari T, Fukuyama T (corresponding author).</p><p class="journal">Arch Toxicol. 2023 Oct;97(10):2707-2719.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1007/s00204-023-03579-0" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/37589943/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1111/febs.16806" target="_blank" rel="noopener">Ganglioside GM3 deficiency enhances mast cell sensitivity</a></p><p class="authors">Komuro M, Mizugaki H, Nagane M, Morimoto M, Fukuyama T, Ogihara K, Naya Y, Yokomori E, Kaneshima K, Kawakami Y, Kamiie J, Shibata Y, Suzuki M, Shimizu T, Kawashima N, Okamoto M, Ikeda T, Yamashita T.</p><p class="journal">FEBS J. 2023 Sep;290(17):4268-4280.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1111/febs.16806" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/37098812/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1002/jat.4462" target="_blank" rel="noopener">Oral exposure to citrinin significantly exacerbates the pathophysiology of a mouse model of imiquimod-induced psoriasis via direct activation of dendritic cell</a></p><p class="authors">Yamaguchi H, Ando M, Iwashita N, Takagi Y, Kushiro M, Fukuyama T (corresponding author).</p><p class="journal">J Appl Toxicol. 2023 Sep;43(9):1284-1292.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1002/jat.4462" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/36908085/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.3389/fvets.2023.1022838" target="_blank" rel="noopener">Possible association of fimA genotype of Porphyromonas gulae with the severity of periodontal disease and the number of permanent teeth in dogs</a></p><p class="authors">Shirahata S, Iwashita N, Sasaki R, Nomura R, Murakami M, Yasuda J, Yasuda H, Nakajima K, Inaba H, Matsumoto-Nakano M, Nakano K, Uchiyama J, Fukuyama T (corresponding author).</p><p class="journal">Front Vet Sci. 2023 Feb 6;10:1022838.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.3389/fvets.2023.1022838" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/36814464/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1096/fj.202200919R" target="_blank" rel="noopener">The novel sustained 3-hydroxybutyrate donor poly-D-3-hydroxybutyric acid prevents inflammatory bowel disease through upregulation of regulatory T-cells</a></p><p class="authors">Suzuki R, Mishima M, Nagane M, Mizugaki H, Suzuki T, Komuro M, Shimizu T, Fukuyama T, Takeda S, Ogata M, Miyamoto T, Aihara N, Kamiie J, Kamisuki S, Yokaryo H, Yamashita T, Satoh T.</p><p class="journal">FASEB J. 2023 Jan;37(1):e22708.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1096/fj.202200919R" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/36562544/" target="_blank" rel="noopener">PubMed</a></div></li>
+        </ol>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2022</div>
+        <ol class="pub-list">
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.virusres.2022.198881" target="_blank" rel="noopener">Phylogenic analysis of new viral cluster of large phages with unusual DNA genomes containing uracil in place of thymine in gene-sharing network</a></p><p class="authors">Uchiyama J, Takemura-Uchiyama I, Gotoh K, Kato SI, Sakaguchi Y, Murakami H, Fukuyama T, Kaneki M, Matsushita O, Matsuzaki S.</p><p class="journal">Virus Res. 2022 Oct 2;319:198881.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.virusres.2022.198881" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/35934259/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1096/fj.202100721RR" target="_blank" rel="noopener">Sphingomyelin maintains the cutaneous barrier via regulation of the STAT3 pathway</a></p><p class="authors">Komuro M, Nagane M, Fukuyama T, Luo X, Hiraki S, Miyanabe M, Ishikawa M, Niwa C, Murakami H, Okamoto M, Yamashita T.</p><p class="journal">FASEB J. 2022 Apr;36(4):e22111.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1096/fj.202100721RR" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/35230716/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1093/femsle/fnac019" target="_blank" rel="noopener">Heterogeneous IgE reactivities to Staphylococcus pseudintermedius strains in dogs with atopic dermatitis</a></p><p class="authors">Takemura-Uchiyama I, Tsurui H, Shimakura H, Nasukawa T, Imanishi I, Uchiyama J, Fukuyama T, Sakamoto S, Morisawa K, Fujimura M, Murakami H, Kanamaru S, Kurokawa K, Kawamoto K, Iyori K, Sakaguchi M.</p><p class="journal">FEMS Microbiol Lett. 2022 Feb 26;369(1):fnac019.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1093/femsle/fnac019" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/35191469/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.bbrc.2022.02.004" target="_blank" rel="noopener">Glucosylceramide in T cells regulates the pathology of inflammatory bowel disease</a></p><p class="authors">Komuro M, Nagane M, Endo R, Nakamura T, Miyamoto T, Niwa C, Fukuyama T, Harashima H, Aihara N, Kamiie J, Suzuki R, Yamashita T.</p><p class="journal">Biochem Biophys Res Commun. 2022 Apr 9;599:24-30.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.bbrc.2022.02.004" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/35168060/" target="_blank" rel="noopener">PubMed</a></div></li>
+        </ol>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2021</div>
+        <ol class="pub-list">
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1165/rcmb.2021-0302LE" target="_blank" rel="noopener">An Acceptable Concentration (0.1 ppm) of Ozone Exposure Exacerbates Lung Injury in a Mouse Model</a></p><p class="authors">Tomita K, Okawara T, Ohira C, Morimoto A, Aihara R, Kurihara T, Fukuyama T (corresponding author).</p><p class="journal">Am J Respir Cell Mol Biol. 2021 Dec;65(6):674-676.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1165/rcmb.2021-0302LE" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/34554898/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.phymed.2021.153679" target="_blank" rel="noopener">Topical treatment with mastic elicits anti-inflammatory and anti-pruritic responses by modulating keratinocyte activation in a mouse model of allergic dermatitis</a></p><p class="authors">Kishimoto R, Kato N, Koike M, Iwashita N, Takagi Y, Fukuyama T (corresponding author).</p><p class="journal">Phytomedicine. 2021 Oct;91:153679.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.phymed.2021.153679" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/34332283/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1093/toxsci/kfaa168" target="_blank" rel="noopener">Acute and Subacute Oral Toxicity of Deoxynivalenol Exposure in a Dermatophagoides farinae-Induced Murine Asthma Model</a></p><p class="authors">Ookawara T, Aihara R, Morimoto A, Iwashita N, Kurata K, Takagi Y, Miyasaka A, Kushiro M, Miyake S, Fukuyama T (corresponding author).</p><p class="journal">Toxicol Sci. 2021 Jan 28;179(2):229-240.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1093/toxsci/kfaa168" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/33170220/" target="_blank" rel="noopener">PubMed</a></div></li>
+        </ol>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2020</div>
+        <ol class="pub-list">
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1007/s00204-020-02875-3" target="_blank" rel="noopener">Acute and subacute oral administration of mycotoxin deoxynivalenol exacerbates the pro-inflammatory and pro-pruritic responses in a mouse model of allergic dermatitis</a></p><p class="authors">Aihara R, Ookawara T, Morimoto A, Iwashita N, Takagi Y, Miyasaka A, Kushiro M, Miyake S, Fukuyama T (corresponding author).</p><p class="journal">Arch Toxicol. 2020 Dec;94(12):4197-4207.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1007/s00204-020-02875-3" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/32813090/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1002/jat.4017" target="_blank" rel="noopener">Activation of aryl hydrocarbon receptor by benzo[a]pyrene increases interleukin 33 expression and eosinophil infiltration in a mouse model of allergic airway inflammation</a></p><p class="authors">Tajima H, Tajiki-Nishino R, Watanabe Y, Kurata K, Fukuyama T (corresponding author).</p><p class="journal">J Appl Toxicol. 2020 Nov;40(11):1545-1553.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1002/jat.4017" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/32557721/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1002/jat.3988" target="_blank" rel="noopener">Estrogen receptor α activation aggravates imiquimod-induced psoriasis-like dermatitis in mice by enhancing dendritic cell interleukin-23 secretion</a></p><p class="authors">Iwano R, Iwashita N, Takagi Y, Fukuyama T (corresponding author).</p><p class="journal">J Appl Toxicol. 2020 Oct;40(10):1353-1361.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1002/jat.3988" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/32368827/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1080/03601234.2019.1708165" target="_blank" rel="noopener">Rapid adaptation of Chironomus yoshimatsui to acetylcholinesterase inhibitors in a multi-generation study</a></p><p class="authors">Ishimota M, Tajiki-Nishino R, Fukuyama T, Tomiyama N.</p><p class="journal">J Environ Sci Health B. 2020;55(5):429-437.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1080/03601234.2019.1708165" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/32065017/" target="_blank" rel="noopener">PubMed</a></div></li>
+        </ol>
+      </div>
+
+      <div class="year-block">
+        <div class="year">2019</div>
+        <ol class="pub-list">
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1002/brb3.1428" target="_blank" rel="noopener">Calcium imaging of primary canine sensory neurons: Small-diameter neurons responsive to pruritogens and algogens</a></p><p class="authors">Ganchingco JRC, Fukuyama T, Yoder JA, Bäumer W.</p><p class="journal">Brain Behav. 2019 Dec;9(12):e01428.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1002/brb3.1428" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/31571393/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.jnutbio.2019.01.009" target="_blank" rel="noopener">Subacute oral administration of folic acid elicits anti-inflammatory response in a mouse model of allergic dermatitis</a></p><p class="authors">Makino E, Fukuyama T (corresponding author), Watanabe Y, Tajiki-Nishino R, Tajima H, Ohnuma-Koyama A, Takahashi N, Ohtsuka R, Okazaki Y.</p><p class="journal">J Nutr Biochem. 2019 May;67:14-19.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.jnutbio.2019.01.009" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/30831459/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1292/jvms.18-0641" target="_blank" rel="noopener">Effect of prenatal exposure to combined immunosuppressive agrochemicals in a mouse model of allergic airway inflammation</a></p><p class="authors">Tajiki-Nishino R, Watanabe Y, Fukuyama T (corresponding author).</p><p class="journal">J Vet Med Sci. 2019 Apr 16;81(4):541-544.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1292/jvms.18-0641" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/30773519/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1002/jat.3782" target="_blank" rel="noopener">Direct activation of aryl hydrocarbon receptor by benzo[a]pyrene elicits T-helper 2-driven proinflammatory responses in a mouse model of allergic dermatitis</a></p><p class="authors">Tajima H, Tajiki-Nishino R, Watanabe Y, Fukuyama T (corresponding author).</p><p class="journal">J Appl Toxicol. 2019 Jul;39(7):936-944.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1002/jat.3782" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/30748024/" target="_blank" rel="noopener">PubMed</a></div></li>
+          <li class="pub-item"><p class="pub-title"><a href="https://doi.org/10.1016/j.tox.2018.11.002" target="_blank" rel="noopener">Role of estrogen receptors α and β in the development of allergic airway inflammation in mice</a></p><p class="authors">Watanabe Y, Tajiki-Nishino R, Tajima H, Fukuyama T (corresponding author).</p><p class="journal">Toxicology. 2019 Jan 1;411:93-100.</p><div class="link-row"><a class="link-chip" href="https://doi.org/10.1016/j.tox.2018.11.002" target="_blank" rel="noopener">DOI</a><a class="link-chip" href="https://pubmed.ncbi.nlm.nih.gov/30445053/" target="_blank" rel="noopener">PubMed</a></div></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
